@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
 import { HttpClient } from '@angular/common/http';
+import {config} from '../../../config/dev';
  
 
 @Component({
@@ -58,6 +59,11 @@ export class MealsListComponent {
     this.getData().subscribe(data =>{
       this.source.load(data);
       console.log(data)
+      
+      data.forEach(record => {
+        console.log(config.resources+record.img_url)
+        
+      });
     } 
     );
     //console.log(custmdata)cmd
@@ -82,7 +88,7 @@ export class MealsListComponent {
 
   getData(): any {
    // var fetched_data;
-    return this.http.get('http://localhost:3000/api/meals');
+    return this.http.get(config.url+'/meals');
   }
 
 }

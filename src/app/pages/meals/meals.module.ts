@@ -4,6 +4,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import {FormsModule} from '@angular/forms';
 import { MealsRoutingModule, routedComponents } from './meals-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import {SharedModule} from '../../shared/shared.module';
 import {
   NbActionsModule,
   NbButtonModule,
@@ -23,6 +24,7 @@ import {
     NbCardModule,
     NbActionsModule,
     NbButtonModule,
+    SharedModule,
     NbCardModule,
     NbCheckboxModule,
     NbDatepickerModule, NbIconModule,

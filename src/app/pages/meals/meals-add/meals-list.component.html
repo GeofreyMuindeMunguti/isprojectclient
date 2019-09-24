@@ -30,6 +30,13 @@
         <label>Sugar:</label>
         <input class="form-control" formControlName="sugar" type="number">
     </div>
+
+    <div class="form-group">
+      <label>Image:</label>
+      <input formControlName="img_url" type="file"
+      id="file"
+      (change)="handleFileInput($event.target.files)">
+      </div>
     
   </div>
   <div style="float:right; width:45%">
@@ -52,10 +59,18 @@
   <label>Grams:</label>
   <input class="form-control" formControlName="grams" type="number">
 </div>
+
  
 <div class="form-group">
   <label>In grams:</label>
   <input class="form-control" formControlName="in_grams" type="number">
+</div>
+
+<div class="form-group">
+  <label for="category">Category</label>
+  <select class="form-control" id="category" formControlName="category">
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
 </div>
  
         <button type="submit"

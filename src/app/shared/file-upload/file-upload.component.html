@@ -1,0 +1,33 @@
+<div [formGroup]="form">
+    <div class="form-group row">
+      <label for="img_url" class="col-sm-2 col-form-label">Image</label>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input type="text" class="form-control" value="{{file?.name}}" readonly>
+          <div class="input-group-append">
+            <input class="d-none" type="file" accept="image/png, image/jgp, image/jpeg" (change)="onChange($event)"
+              #filePicker>
+            <button type="button" class="btn btn-outline-secondary" (click)="filePicker.click()">Browse</button>
+            <button type="button" class="btn btn-outline-secondary" (click)="uploadFile()" [disabled]="fileValid()">Upload</button>
+          </div>
+
+        </div>
+        <div class="row">
+        </div>
+        <div *ngIf="fileValid() && uploadAttempt" class="alert alert-danger">
+          Dimensions: {{validWidth}}x{{validHeight}}px, Max size: 1MB, Filetype: .png, .jpg, .jpeg
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group row"  *ngIf="imgUrl">
+        <label  style=" width: 50%;" class="col-sm-2 col-form-label">Image Preview</label>
+    <div style="float: right; border: 4px solid rgb(120, 132, 133); border-radius: 5px; ">
+      <img style="height: 100px; width:100px;" [src]="imgUrl"  />
+    </div>
+    </div>
+
+    
+  </div>
+   

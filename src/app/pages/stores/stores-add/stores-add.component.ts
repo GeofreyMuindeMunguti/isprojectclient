@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators, Form } from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
+import {config} from '../../../config/dev';
 
 @Component({
   selector: 'ngx-stores-add',
@@ -33,7 +34,7 @@ export class StoresAddComponent implements OnInit {
  //   console.log(this.storeForm.value);
     const data = this.storeForm.value;
 
-    const action = this.http.post('http://localhost:3000/api/stores',data );
+    const action = this.http.post(config.url+'/stores',data );
     action.subscribe(data =>{
    //  console.log(data);
      if(data){

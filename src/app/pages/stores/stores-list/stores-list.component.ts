@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
 import { HttpClient } from '@angular/common/http';
+import {config } from '../../../config/dev';
 
 @Component({
   selector: 'ngx-stores-list',
@@ -52,7 +53,7 @@ export class StoresListComponent {
   })
   }
   getData(): any {
-   const stores = this.http.get('http://localhost:3000/api/stores');
+   const stores = this.http.get(config.url+'/stores');
    return stores;
 
   }

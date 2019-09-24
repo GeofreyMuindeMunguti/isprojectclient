@@ -6,6 +6,7 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import {SharedModule} from '../app/shared/shared.module';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -23,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    SharedModule,
     AppRoutingModule,
     ThemeModule.forRoot(),
     NbSidebarModule.forRoot(),
